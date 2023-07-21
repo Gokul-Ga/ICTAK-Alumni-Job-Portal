@@ -24,8 +24,6 @@ const styles = {
 const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform the signup action here
-    // Replace with your actual signup logic
     console.log('Signup form submitted');
   };
 
