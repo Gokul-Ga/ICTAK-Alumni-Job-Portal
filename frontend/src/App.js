@@ -1,27 +1,32 @@
-
+// import logo from './logo.svg';
 import './App.css';
-import { Route, Routes } from "react-router-dom";
-import "../src/App.css";
-
-import SignupUser from "./components/USER/SignupUser";
-import LoginNavbarUser from "./components/USER/LoginNavbarUser";
-import ViewJobsUser from "./components/USER/ViewJobsUser";
-import FooterUser from "./components/USER/FooterUser";
-import LoginUser from "./components/USER/LoginUser";
-import SignupNavbarUser from "./components/USER/SignupNavbarUser";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './components/employer/Login';
+import HomePage from './components/HomePage/HomePage';
+import Signup from './components/employer/Signup';
+// import Navbar from './components/employer/Navbar';
+import Navbar from './components/NavBar/NavBar';
+import Dashboard from './components/employer/Dashboard';
+import Footer from './components/Footer/Footer'
+import Addjobs from './components/employer/AddJobs'
+import JobDetails from './components/JobDetails/JobDetails';
+import PostedJobs from './components/employer/PostedJobs';
 function App() {
+  
   return (
-    <div className="App">
-     <Routes>
-      <Route path="/SignupNavbarUser" element={<SignupNavbarUser/>}></Route>
-      <Route path="/LoginUser" element={<LoginUser/>}></Route>
-        <Route path="/ViewJobsUser" element={<ViewJobsUser/>}></Route>
-        <Route path="/SignupUser" element={<SignupUser/>}></Route>
-        <Route path="/LoginNavbarUser" element={<LoginNavbarUser/>}></Route>
-        <Route path="/FooterUser" element={<FooterUser/>}></Route>
-      </Routes>
-    </div>
+    <BrowserRouter>
+    <Navbar/>
+    <Routes>
+    <Route path='/' element={<HomePage/>}/>
+    <Route path='/dashboard' element={<Dashboard/>}/>
+      <Route path='login' element={<Login/>}/>
+      <Route path='/signup' element={<Signup/>}/> 
+      <Route path="/job/:id" element={<JobDetails />} />
+      <Route path='/postedjobs' element={<PostedJobs/>}/> 
+
+    </Routes>
+    {/* <Footer/> */}
+    </BrowserRouter>
   );
 }
-
 export default App;
